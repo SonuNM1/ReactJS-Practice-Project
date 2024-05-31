@@ -6,7 +6,7 @@ import UnorderedList from '../components/UnorderedList';
 function About() {
     return(
         <>
-            <Title name="NodeJS Guide"/>
+            <Title name="NodeJS Guide" collegeName={"Amity"} rollNo={123} schoolName={"KV Raiwala"} />
             <UnorderedList/>
             <Title name="General"/>
             <Title name="NodeJS Core concepts"/>
