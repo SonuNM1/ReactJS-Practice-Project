@@ -1,8 +1,16 @@
 
 import React from "react";
+import store from "../store/store";
+import { incrementByAmount } from "../store/reducer";
 
 function Contact() {
-    return <h1>This is Contact Screen</h1>
+    return (
+        <>
+            <button onClick={store.dispatch(incrementByAmount(5))} >
+            Increase Count by 5
+            </button>
+        </>
+    )
 }
 
 export default Contact ; 

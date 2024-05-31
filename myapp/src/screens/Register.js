@@ -1,45 +1,47 @@
-import React, { useState } from "react";
-import "./Register.css" ; 
+import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+
+const expensiveCalculation = (num) => {
+  console.log("Calculating...");
+
+  for (let i = 0; i < 100000000; i++) {
+    num += 1;
+  }
+  return num;
+}
 
 function Register() {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
+  const calculation = useMemo(()=> expensiveCalculation(count),[count]); 
 
-    const [email, setEmail] = useState() ;  // to manage state
+  // Memoization -> stores in cache 
 
-    const [password, setPassword] = useState() ; 
-
-    const [age, setAge] = useState() ; 
-
-  function handleRegister(event) {
-    event.preventDefault(); // do not reload the screen on calling this function
-    console.log("Hello");
+  const increment = () => {
+    setCount((c) => c + 1);
   }
 
-  setAge(13) ; 
-
-  
-
- // console.log(email) ; 
- // console.log(password) ; 
+  const addTodo = () => {
+    setTodos((t) => [...t, "Todo Task"]);
+  }
 
   return (
-    <form>
-        <div>
-            <h1>{age}</h1>
-          <input 
-          className="form-input" type="email" 
-          placeholder="Enter email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          ></input>
-          <input 
-          type="password" placeholder="Enter password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          ></input>
-          <button 
-          onClick={handleRegister}>Submit</button>
-        </div>
-    </form>
+    <div>
+      <div>
+        <h2>My Todos</h2>
+        {todos.map((todo, index) => {
+          return <p key={index}>{todo}</p>;
+        })}
+        <button onClick={addTodo}>Add Todo</button>
+      </div>
+      <div>
+        Count: {count}
+        <button onClick={increment}>+</button>
+        <h2>Expensive Calculation</h2>
+        {calculation}
+      </div>
+      <Link to="/user-list">Take me to User-List</Link>
+    </div>
   );
 }
 
