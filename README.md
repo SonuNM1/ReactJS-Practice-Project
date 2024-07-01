@@ -14,7 +14,7 @@
  - React router
  - localforage
  - match-sorter
- - sort-by
+ - sort-byyouute
  - Link Vs Navigate
  - Redux(store, action, patch, reducers)
  - Reducer
