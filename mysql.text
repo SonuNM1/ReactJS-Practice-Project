@@ -1,0 +1,80 @@
+
+
+CREATE DATABASE sampleDB
+
+USE sampleDB;
+
+CREATE TABLE employee (
+	empID INT AUTO_INCREMENT PRIMARY KEY ,
+    firstName VARCHAR(25) NOT NULL ,
+    lastName VARCHAR(40) NOT NULL , 
+    dept VARCHAR(35),
+    salary DECIMAL(10,2)
+) ; 
+
+DESCRIBE employee ; 
+
+INSERT INTO employee (firstName, lastName, dept, salary) VALUES 
+('John', 'Doe', 'HR', 50000.00),
+('Jane', 'Smith', 'IT', 70000.00),
+('Emily', 'Jones', 'IT', 70000.00),
+('Michael', 'Brown', 'Finance', 60000.00),
+('Chris', 'Davis', 'HR', 50000.00),
+('Anna', 'Wilson', 'Marketing', 65000.00),
+('Emily', 'Clark', 'IT', 72000.00);
+
+SELECT COUNT(DISTINCT dept) FROM employee ; 
+
+ SELECT * FROM employee WHERE dept IN('IT', 'HR') ; 
+ 
+SELECT * FROM employee WHERE firstName LIKE 'E%';
+
+SELECT COUNT(DISTINCT firstName) from employee WHERE firstName = 'Emily'; 
+
+SELECT * FROM employee ORDER BY salary DESC, firstName ASC; 
+
+SELECT * FROM employee WHERE dept = 'IT' AND salary > 70000 ; 
+
+SELECT * FROM employee WHERE NOT firstName NOT LIKE 'E%' ; 
+
+SELECT * FROM employee WHERE NOT salary < 70000 ; 
+
+CREATE DATABASE companyDB ; 
+USE companyDB ; 
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    JoinDate DATE,
+    ManagerID INT
+);
+
+DESCRIBE Employees ; 
+
+INSERT INTO Employees (FirstName, LastName, Department, Salary, JoinDate, ManagerID) VALUES
+('John', 'Doe', 'HR', 50000.00, '2023-05-15', NULL),
+('Jane', 'Smith', 'IT', 70000.00, '2024-02-20', 1),
+('Emily', 'Jones', NULL, 65000.00, '2023-12-10', 2),
+('Michael', 'Brown', 'Finance', 60000.00, '2023-11-01', 1),
+('Chris', 'Davis', 'HR', 50000.00, NULL, 3),
+('Anna', 'Wilson', 'Marketing', 65000.00, '2024-01-05', 2),
+('Emily', 'Clark', 'IT', 72000.00, '2024-03-10', NULL);
+
+SELECT * FROM Employees WHERE Department IS NOT NULL ; 
+
+SHOW databases ; 
+
+USE sampledb ; 
+
+SELECT * FROM employee ; 
+
+UPDATE employee SET lastName = 'Mahto' WHERE empID = 2 ; 
+
+UPDATE employee SET salary = 10000 WHERE empID = 1 ; 
+
+UPDATE employee 
+SET salary = 1, lastName = 'Tiwari'
+WHERE empID =5  ; 
