@@ -136,3 +136,117 @@ SELECT student.first_name, student.last_name, scholarship.scholarship_amount, sc
 FROM student 
 INNER JOIN scholarship 
 ON student.student_id = scholarship.student_ref_id ; 
+
+-- 26. Write an SQL query to show one row twice in results from a table.
+
+SELECT * FROM student 
+UNION ALL 
+SELECT * FROM student ORDER BY student_id; 
+
+-- 27. Write an SQL query to list STUDENT_ID who does not get Scholarship.
+
+SELECT * FROM student ; 
+SELECT * FROM scholarship ; 
+
+SELECT * FROM student WHERE student_id NOT IN (SELECT student_ref_id FROM scholarship);
+
+-- 28. Write an SQL query to fetch the first 50% records from a table.
+
+SELECT * FROM student WHERE student_id <= (SELECT COUNT(student_id)/2 FROM student); 
+
+-- 29. Write an SQL query to fetch the MAJOR subject that have less than 4 people in it.
+
+SELECT major FROM student GROUP BY major HAVING COUNT(*) < 4 ; 
+
+SELECT major, COUNT(*) AS student_count
+FROM student
+GROUP BY major ; 
+
+-- 30. Write an SQL query to show all MAJOR subject along with the number of people in there.
+
+SELECT major, COUNT(*) AS student_count FROM student
+GROUP BY major; 
+
+-- 31. Write an SQL query to show the last record from a table.
+
+SELECT * FROM student 
+ORDER BY student_id DESC
+LIMIT 1 OFFSET 0; 
+
+SELECT * FROM student WHERE student_id = (SELECT MAX(student_id) FROM student) ; 
+
+-- 32. Write an SQL query to fetch the first row of a table.
+
+SELECT * FROM student WHERE student_id = (SELECT MIN(student_id) FROM student) ; 
+
+-- 33. Write an SQL query to fetch the last five records from a table.
+
+SELECT * FROM student ORDER BY student_id DESC LIMIT 5 OFFSET 0 ; 
+
+SELECT * FROM (
+	SELECT * FROM student ORDER BY student_id DESC LIMIT 5
+) AS subquery ORDER BY student_id ; 
+
+-- 34. Write an SQL query to fetch three max GPA from a table using co-related subquery.
+
+SELECT * FROM student; 
+
+SELECT gpa FROM student ORDER BY gpa DESC LIMIT 3 ; 
+
+-- 35. Write an SQL query to fetch three min GPA from a table using co-related subquery.
+
+SELECT gpa FROM student ORDER BY gpa LIMIT 3 ; 
+
+-- 36. Write an SQL query to fetch nth max (say 6th) GPA from a table.
+
+SELECT gpa AS sixth_max_gpa FROM student
+ORDER BY gpa LIMIT 1 OFFSET 5 ; 
+
+-- 37.  37. Write an SQL query to fetch MAJOR subjects along with the max GPA in each of these MAJOR subjects.
+
+SELECT major, max(GPA) AS max_gpa FROM student GROUP BY major;  
+
+-- 38. Write an SQL query to fetch the names of Students who has highest GPA
+
+SELECT CONCAT(first_name, last_name) AS full_name, gpa AS max_gpa FROM student 
+WHERE gpa = (SELECT MAX(gpa) FROM student) ; 
+
+-- 39. Write an SQL query to show the current date and time.
+
+-- For current date 
+SELECT curdate() ; 
+-- For current time 
+SELECT curtime() ;
+
+-- 40. Write a query to create a new table which consists of data and structure copied 
+-- from the other table (say Student) or clone the table named Student.
+
+CREATE TABLE cloneTable AS SELECT * FROM student ; 
+
+SELECT * FROM cloneTable ; 
+
+-- 41. Write an SQL query to update the GPA of all the students in ‘Computer Science’ MAJOR subject to 7.5.
+
+UPDATE student SET gpa = 7.5 WHERE major = 'Computer Science' ; 
+SELECT * FROM student ; 
+
+-- 42. Write an SQL query to find the average GPA for each major.
+
+SELECT major, AVG(gpa) AS Average_GPA FROM student
+GROUP BY major ORDER BY Average_GPA; 
+
+--  43. Write an SQL query to show the top 3 students with the highest GPA.
+
+SELECT CONCAT(first_name , ' ',  last_name) AS full_name, gpa FROM student ORDER BY gpa DESC LIMIT 3 ; 
+
+-- 44. Write an SQL query to find the number of students in each major who have a GPA greater than 7.5.
+
+SELECT major, COUNT(student_id) AS high_gpa_count FROM student WHERE gpa > 7.5 GROUP BY major ; 
+
+-- 45. Write an SQL query to find the students who have the same GPA as ‘Shivansh Mahajan’.
+
+SELECT * FROM student 
+WHERE gpa = 
+(SELECT gpa FROM student 
+WHERE first_name = 'Shivansh' 
+AND last_name = 'Mahajan') ; 
