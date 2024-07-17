@@ -85,3 +85,7 @@ Change the properties of constant object
 - Sass (Syntactically Awesome Style Sheets)
 
 - React Hook (useState, useEffect, useContext, useRef, useReducer, useCallback, useMemo, Custom hooks)
+
+- localStorage
+
+- React Form Validation
