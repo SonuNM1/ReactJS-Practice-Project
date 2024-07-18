@@ -89,3 +89,22 @@ Change the properties of constant object
 - localStorage
 
 - React Form Validation
+
+
+### JWT (JSON Web Token)
+
+
+- public, private cryptography in encryption and decryption
+
+- stateless and stateful 
+
+- what is jwt (securely transmitting info b/n parties as a JSON object) ? How is it structured ? 
+
+- header, payload and signature are the three components that make up the token. 
+
+- Authentication (Who are you) Vs. Authorization (What can you do)
+
+- How do you securely store a JWT on the client side? 
+
+
+
