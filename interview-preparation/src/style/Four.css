@@ -1,0 +1,27 @@
+
+body{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.outer-container{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.item-list{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.item-list li{
+    margin: 10px;
+    font-size: 18px;
+}

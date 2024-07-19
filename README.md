@@ -88,7 +88,7 @@ Change the properties of constant object
 
 - localStorage
 
-- React Form Validation
+- React Form Validation (Frontend & Backend)
 
 
 ### JWT (JSON Web Token)
