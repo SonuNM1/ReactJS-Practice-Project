@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './style/Eight.css' ; 
 
 function Eight() {
     const [input, setInput] = useState('');
@@ -17,7 +18,7 @@ function Eight() {
     };
 
     return (
-        <div>
+        <div className='container'>
             <input 
                 type='text' 
                 value={input} 
