@@ -1,0 +1,48 @@
+/* Fourteen.css */
+
+body {
+    animation: changeBackground 10s infinite;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @keyframes changeBackground {
+    0% { background-color: #ffadad; }
+    25% { background-color: #ffd6a5; }
+    50% { background-color: #fdffb6; }
+    75% { background-color: #caffbf; }
+    100% { background-color: #9bf6ff; }
+  }
+  
+  .container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .temp {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #ff5733;
+  }
+  
+  .condition {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+  }
+  

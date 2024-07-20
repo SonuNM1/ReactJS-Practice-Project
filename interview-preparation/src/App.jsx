@@ -13,13 +13,21 @@ import './App.css';
 // import Ten from './Ten';
 // import Eleven from './Eleven';
 // import Twelve from './Twelve';
-import Thirteen from './Thirteen';
+// import Thirteen from './Thirteen';
+// import Fourteen from './Fourteen';
+ import Fifteen from './Fifteen';
+ import './style/Fifteen.css' ;
 
 
 export default function App() {
   
+  const items = ['Apple', 'Mango', 'Orange' , 'Cherry', 'Strawberry']
+
   return (
-    <Thirteen/> 
+    <div className='container'>
+    <Fifteen items={items}/> 
+    </div> 
+
   )
 }
 
