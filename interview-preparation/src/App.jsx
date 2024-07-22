@@ -21,12 +21,21 @@ import './App.css';
 
 export default function App() {
   
-  const items = ['Apple', 'Mango', 'Orange' , 'Cherry', 'Strawberry']
+/*
+  const items = ['Apple', 'Mango', 'Orange' , 'Cherry', 'Strawberry'] ; 
+*/
 
   return (
+    /*
     <div className='container'>
     <Fifteen items={items}/> 
     </div> 
+    */
+
+    <form className='App'>
+      <label>First name: </label> <br/>
+      <input type='text' id='fname' value="John"></input>
+    </form>
 
   )
 }
