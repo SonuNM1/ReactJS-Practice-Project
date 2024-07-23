@@ -44,7 +44,7 @@ A state can be modified based on user action or network changes. Everytime when 
 4. Cannot be conditional
 
 
-- Hooks (useState, useEffect, useRef, useCallback, useMemo, useSelector)
+- Hooks (useState, useEffect, useRef, useCallback, useMemo, useReducer, useSelector)
 
 - useEffect : when the component mounts, used to perform side affects (fetching data, updating the document title DOM, setting up subscriptions, logging to console, accessing local storage) in the application 
 
@@ -56,3 +56,50 @@ Both are used to optimize performance by caching the results of expensive operat
 
 Memoization is a technique used to optimize performance by storing the results of expensive function cals and reusing those results when the same inputs occur again. Helps in avoiding redundant calculations by caching the computed values. 
 
+
+- useCallback: used to memoize functions. Returns a memoized version of the callback function that only changes if one of the dependencies has changed. 
+
+Useful for optimizing performance, especially when passing callbacks to child components that rely on reference equality to prevent unnecessary re-renders.
+
+When we need to pass a function as a prop to the child component, use 'useCallback' to prevent unnecessary re-renders. 
+
+Purpose: memoizes a function. 
+
+Usage: Used when we want to memoize a function to prevent it from being recreated on every render. 
+
+Return value: Returns the memoized function. 
+
+- useMemo: 
+
+Purpose: Memoizes the result of a function
+
+Usage: used when we want to memoize the result of an expensive calculation to avoid recomputing it on every render
+
+Return value: returns the memoized value 
+
+
+- useReducer: used for state management. Alternative of useState() hook. Preferable for complex state management logic. 
+
+Syntax: const [state, dispatch] = useReducer(reducer, initialState) ; 
+
+newState = reducer(currentState, action)
+
+- Reducer 
+
+- Custom hooks : named using the 'use' prefix to indicate they follow the rules of hooks. 
+
+Code reusability - extract reusable logic into a custom hook and share it across multiple components. 
+
+- Ternary Operator
+
+- Mapping components, List rendering
+
+- Axios in ReactJS (Yoshita Jain)
+
+- Learn Bootstrap-react
+
+
+### React Router 
+
+
+- BrowserRouter -> Routes -> Route
