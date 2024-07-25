@@ -15,10 +15,17 @@ import UseReducer from "./UseReducer";
 import CustomHook from "../CustomHook";
 import AgeValidation from "../AgeValidation";
 */
-import Mapping from './Mapping'; 
+import Mapping from "./Mapping";
 import Mapping2 from "./Mapping2";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Routes, Route} from "react-router-dom" ; 
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./React router/Home";
+import About from "./React router/About";
+import Contact from "./React router/Contact";
+
+import { Provider } from "react-redux";
+import store from "./Redux Container/Store";
+import BookContainer from "./Redux Container/BookContainer";
 
 /*
 const data = createContext();
@@ -26,26 +33,26 @@ const data1 = createContext();
 */
 
 function App() {
-
   /*
   const name = "Sonu NM";
   const gender = "Male";
   */
 
   return (
-    <>
-      {/*<Profile 
+    <Provider store={store}>
+      <>
+        {/*<Profile 
         text={{ name: "Sonu NM" }}
         data="Profile data"
       />*/}
 
-      {/*<data.Provider value={name}>
+        {/*<data.Provider value={name}>
         <data1.Provider value={gender}>
           <ChildA />
         </data1.Provider>
       </data.Provider>*/}
 
-      {/*<data.Provider value={name}>
+        {/*<data.Provider value={name}>
         <data1.Provider value={gender}>
           <ChildA />
         </data1.Provider>
@@ -59,24 +66,18 @@ function App() {
 
         {/*<Mapping2/>*/}
 
-        <Routes>
-          <Route 
-          path='/' 
-          element={<div>Home Page</div>}/>
+        {/*<Routes>
+          <Route path="/" element={<Home />} />
 
-          <Route
-          path='/about'
-          element={<div>About</div>}
-          />
+          <Route path="/about" element={<About />} />
 
-          <Route
-          path="/contact"
-          element={<div>Contact Page</div>}
-          />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>*/}
 
-        </Routes>
+        <BookContainer/>
 
-    </>
+      </>
+    </Provider>
   );
 }
 

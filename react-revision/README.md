@@ -98,8 +98,102 @@ Code reusability - extract reusable logic into a custom hook and share it across
 
 - Learn Bootstrap-react
 
+- localStorage: is a way to store data in a user's web browser. It's like a small database in the browser that allows you to save key-value pairs. 
+
+In a React component, you can use LocalStorage to store state that persists even after the user refreshes the page.
+
+Persistence: Data stored in LocalStorage remains available even after the browser is closed and reopened. This allows applications to save user settings, preferences, and state without requiring a server-side database.
+
+Performance: Storing data locally reduces the need to fetch data from a remote server, which can improve the performance and responsiveness of an application. This is particularly useful for frequently accessed data.
+
+Offline Access: LocalStorage enables web applications to function offline by storing necessary data locally. Users can continue interacting with the application without an internet connection, and the data can be synchronized with the server when connectivity is restored.
 
 ### React Router 
 
 
-- BrowserRouter -> Routes -> Route
+- BrowserRouter -> Routes -> Route -> Link -> useNavigate 
+
+- pass data from one component to another component using useNavigate. Why is it used ? 
+
+- useLocation
+
+
+### React Redux (Store, Action, Reducer, Dispatch)
+
+
+- Redux is a library for JavaScript Applications. Used together to manage the state of complex applications. 
+
+Redux is a predictable (track the state management) state container for JavaScript apps (Angular, Vue) which helps us write applications that behave consistently across different environments (client, server, and native). 
+
+1. State - holds the state of our application
+
+2. Action - object that describes what happened. Defines the actions. 
+
+Actions are JavaScript object that contains information. Actions are the only source of information for the store. It only tells us what has happened. 
+
+Actions have a type property and it should be defined in string constraint. 
+
+It is compulsory to include the 'type property' in the object. 
+
+3. Reducer - a function that determines how the state changes in response to an action. Defines how state changes. Carries out state transition depending on the action. 
+
+reducer(currentState, action) => newState
+
+Reducers decides how the state of application changes depending upon the action send to the store. 
+
+Reducers are the function that accepts state and action as parameter and returns the next state of the applicton 
+
+4. Dispatch - Sends an action to the store. 
+
+5. Store - holds state of our application 
+
+Entire application contains single store. It is responsible for holding application state. 
+
+getState() method gives access to state it holds. 
+
+dispatch(action) method allows state to be updated. 
+
+subscribe(listener) method, by which we can register listeners 
+
+- Real-life example of Redux: 
+
+State - holds the items in the cart and the total quantity
+
+Action - represents actions like adding an item, removing an item, and cleaning the cart 
+
+Reducer - defines how the state changes based on actions 
+
+Dispatch - sends action to the store 
+
+Store - holds the entire state of the shopping cart 
+
+- Rules of Redux: 
+
+1. The state of our application is stored in an object tree within a single store 
+
+{
+    NumberOfBooks: 10
+}
+
+2. Only way to change the state is to emit an action, an object describing what happened. 
+
+{
+    Type: "buyBook"
+}
+
+3. To specify how the state tree is transformed by actions, we write pure reducer. 
+
+- useSelector: is a hook that react-redux library provides to get hold of any state that is maintained in the redux store. 
+
+Allows us to extract data from the Redux store state. Used within function components to access the Redux state and subscribe to changes. 
+
+
+- useDispatch 
+
+useSelector is used to access state from the redux store. 
+
+useDispatch is used to dispatch actions to the redux store. 
+
+
+
+### React Redux Toolkit (RTK) Query
